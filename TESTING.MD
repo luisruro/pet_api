@@ -1,6 +1,6 @@
 # 🧪 Testing — Pet Registry API
 
-Guía de pruebas manuales con Postman para todos los endpoints de la API.
+Guía de pruebas con Postman para todos los endpoints de la API.
 
 > **Base URL:** `http://127.0.0.1:8000`  
 > **Variable compartida:** `{{pet_id}}` — se guarda automáticamente al ejecutar la prueba **POST 1.1**
