@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+from fastapi.responses import JSONResponse
 from pydantic import BaseModel, Field
 from datetime import datetime
 from typing import Optional
@@ -43,7 +44,7 @@ async def get_pet(pet_id: str):
     for pet in pets:
         if pet.id == pet_id:
             return pet
-    return {"error": "Pet not found"}
+    return JSONResponse(status_code=404, content={"error": "Pet not found"})
 
 # Delete a pet by ID
 @app.delete("/pets/{pet_id}")
@@ -51,8 +52,8 @@ async def delete_pet(pet_id: str):
     for pet in pets:
         if pet.id == pet_id:
             pets.remove(pet)
-            return {"message": "Pet deleted"}
-    return {"error": "Pet not found"}
+            return JSONResponse(status_code=200, content={"message": "Pet deleted"})
+    return JSONResponse(status_code=404, content={"error": "Pet not found"})
 
 # Update a pet by ID
 @app.put("/pets/{pet_id}")
@@ -66,4 +67,4 @@ async def update_pet(pet_id: str, pet_update: PetCreate):
             pet.gender = pet_update.gender
             pet.comments = pet_update.comments
             return pet
-    return {"error": "Pet not found"}
+    return JSONResponse(status_code=404, content={"error": "Pet not found"})
