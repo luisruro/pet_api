@@ -30,10 +30,10 @@ fastapi dev
 uv run streamlit run app.py
 ```
 
-### Run Frontend
+### Run Selenium Test
 
 ```bash
-uv run streamlit run app.py
+uv run test_selenium.py
 ```
 
 ## API Reference
