@@ -7,8 +7,6 @@ from uuid import uuid4
 
 app = FastAPI()
 
-pets = []
-
 # Pet model
 class PetCreate(BaseModel):
     name: str = Field(..., min_length=1)
@@ -23,6 +21,18 @@ class Pet(PetCreate):
     id: str = Field(default_factory=lambda: str(uuid4()))
     created_at: datetime = datetime.now()
 
+
+pets = [
+    Pet(
+        id="00000000-0000-0000-0000-000000000001",
+        name="Fixture Dog",
+        species="dog",
+        breed="Beagle",
+        age=5,
+        gender="male",
+        comments="Pet fijo para pruebas"
+    )
+]
 
 # CRUD endpoints
 

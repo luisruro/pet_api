@@ -9,4 +9,6 @@ dependencies = [
     "fastapi[standard]",
     "streamlit",
     "requests",
+    "selenium",
+    "webdriver-manager"
 ]
